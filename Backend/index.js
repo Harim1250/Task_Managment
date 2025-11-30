@@ -16,7 +16,6 @@ app.use(express.json());
 
 // the messenger between our app and our database
 const mongoose = require("mongoose");
-const { baseRoot } = require("./controllers/todoController");
 
 // establish connection & give yourself a message so you know when its complete
 const source = process.env.MONGODB_ATLAS_CONNECTION;
@@ -25,8 +24,6 @@ mongoose
   .connect(source)
   .then(() => console.log("✅ DB Connected Successfully"))
   .catch((error) => console.log(error));
-
-app.get("/", baseRoot);
 
 app.use("/api", todoRoutes);
 

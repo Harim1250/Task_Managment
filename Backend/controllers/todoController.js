@@ -1,14 +1,5 @@
 const Todo = require("../models/todoModel");
 
-// Base route to welcome users
-exports.baseRoot = (req, res) => {
-  res
-    .status(200)
-    .send(
-      `<h1>✅ Welcome to MERN-Todofy! </h1><p>See Live Web URL for this Server - <a href="https://mern-todofy.netlify.app">https://mern-todofy.netlify.app</a></p>`
-    );
-};
-
 exports.getTask = async (req, res) => {
   try {
     const allTask = await Todo.find();
