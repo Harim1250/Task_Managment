@@ -27,6 +27,11 @@ mongoose
 
 app.use("/api", todoRoutes);
 
+// Added a default route to handle requests to `/` and return a meaningful response
+app.get("/", (req, res) => {
+  res.status(200).send("Welcome to the Task Management API!");
+});
+
 const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, () => {
